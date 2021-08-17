@@ -64,7 +64,7 @@ def clean_data(df):
         replace them with the new categories columns generated above
     """
     df.drop('categories', axis = 1, inplace = True)
-    df = pd.cancat([df, categories], axis = 1)
+    df = pd.concat([df, categories], axis = 1)
     
     # drop duplicate rows and keep the last one.
     df.drop_duplicates(keep = 'last', inplace = True)
@@ -79,8 +79,8 @@ def save_data(df, database_filename):
         df ([cleaned pandas dataframe])
         database_filename ([sqlite datava=base file])
     """
-    engine = create_engine('sqlite:///InsertDatabasename.db')
-    df.to_sql('disaster_dataset', engine, index=False, if_exists = 'replace')
+    engine = create_engine('sqlite:///DisasterResponse.db')
+    df.to_sql("messages", engine, index=False, if_exists = 'replace')
       
 
 

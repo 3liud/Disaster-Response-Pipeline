@@ -34,8 +34,8 @@ def load_data(database_filepath):
         feature and target variables X & Y along with the target column
     """
     # load data from database
-    engine = create_engine('sqlite:///'+ database_filepath)
-    df = pd.read_sql("SELECT * from disaster_dataset", engine)
+    engine = create_engine('sqlite:///{}'.format('DisasterResponse.db'))
+    df = pd.read_sql_table('messages', con=engine)
     X = df['message'] # feature selection
     Y = df[df.columns[4:]] # target values to predict
     
