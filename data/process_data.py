@@ -77,9 +77,10 @@ def save_data(df, database_filename):
 
     Args:
         df ([cleaned pandas dataframe])
-        database_filename ([sqlite datava=base file])
+        database_filename ([sqlite database file])
     """
-    engine = create_engine('sqlite:///DisasterResponse.db')
+    #engine = create_engine('sqlite:///DisasterResponse.db')
+    engine = create_engine('sqlite:///'+database_filename)
     df.to_sql("messages", engine, index=False, if_exists = 'replace')
       
 

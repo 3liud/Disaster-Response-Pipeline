@@ -21,7 +21,8 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.feature_extraction.text import CountVectorizer, TfidfTransformer
 from sklearn.metrics import classification_report
 from sklearn.model_selection import GridSearchCV
-import gzip 
+from sklearn.externals import joblib
+
 
 
 
@@ -34,12 +35,15 @@ def load_data(database_filepath):
         feature and target variables X & Y along with the target column
     """
     # load data from database
-    engine = create_engine('sqlite:///{}'.format('DisasterResponse.db'))
-    df = pd.read_sql_table('messages', con=engine)
-    X = df['message'] # feature selection
-    Y = df[df.columns[4:]] # target values to predict
+    engine = create_engine('sqlite:///'+database_filepath)
+   # engine = create_engine('sqlite:///./data/DisasterResponse.db')
+    df = pd.read_sql('SELECT * FROM messages', engine)
     
-    return X, Y
+    X = df['message'] # feature selection
+    category_names = df.drop(['id', 'message', 'original', 'genre'], axis=1).columns
+    Y = df[category_names] # target values to predict
+    
+    return X, Y, category_names
 
 
 def tokenize(text):
