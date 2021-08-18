@@ -1,6 +1,7 @@
 import json
 import plotly
 import pandas as pd
+import pickle
 
 from nltk.stem import WordNetLemmatizer
 from nltk.tokenize import word_tokenize
@@ -26,11 +27,13 @@ def tokenize(text):
     return clean_tokens
 
 # load data
-engine = create_engine('sqlite:///../data/YourDatabaseName.db')
-df = pd.read_sql_table('YourTableName', engine)
+engine = create_engine('sqlite:///../data/DisasterResponse.db')
+#engine = create_engine('sqlite:///{}'.format('DisasterResponse.db'))
+#df = pd.read_sql_table('messages', engine)
+df = pd.read_sql('messages', engine)
 
 # load model
-model = joblib.load("../models/your_model_name.pkl")
+model = joblib.load("../models/rf_classifier_model.pkl")
 
 
 # index webpage displays cool visuals and receives user input text for model
