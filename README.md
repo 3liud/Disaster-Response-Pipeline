@@ -1,4 +1,5 @@
 # Disaster Response Pipeline Project
+<img src="images/results-homepage.png">
 
 ## Classification of messages received into different categories
 
@@ -64,7 +65,12 @@ One challenge to delivering the necessary aid to people affected by a natural an
 
 
 ## 5. Images / Screenshots
-![Home page] (/images/results-homepage.png)
+
+Home page <img src="images/homepage overview.png">
+Test 1 <img src="images/food water and tents.png">
+Test 2 <img src="images/water, food, aid.png">
+Test 3 <img src="images/water, food, aid.png">
+
 ## 6. Discussion
 
 The performance of the model is greatly impacted by the imbalanced data. The Training time is also a major factor as the more parameters are added and tuned, the more time the project takes to train. 
