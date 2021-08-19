@@ -28,21 +28,24 @@ One challenge to delivering the necessary aid to people affected by a natural an
 
 ## 3. File Description
 
-├── app
-│   ├── run.py
-│   └── templates
-│       ├── go.html
-│       └── master.html
-
-├── data
-│   ├── disaster_categories.csv
-│   ├── disaster_messages.csv
-│   ├── DisasterResponse.db
-│   └── process_data.py
-
-├── models
-│   ├── classifier.pkl
-│   └── train_classifier.py
+├── app\
+│   ├── run.py \
+│   └── templates\
+│       ├── go.html\
+│       └── master.html\
+├── data\
+│   ├── disaster_categories.csv\
+│   ├── disaster_messages.csv\
+│   ├── DisasterResponse.db\
+│   └── process_data.py >>> python script for loading, cleaning and saving data\
+                           into sqlite  database (ETL pipeline)\
+├── models\
+│   ├── classifier.pkl\ the trained model\
+│   └── train_classifier.py\ >>>ML pipeline. the script trains and tunes a model using\
+                            GridSearchCV then saves the final model \
+├── Notebooks\
+│   ├── ETL Pipeline Preparation.ipynb\
+│   └── ML Pipeline Preparation.ipynb\
 └── README.md
 
 ## 4. Instructions to run the code:
@@ -61,11 +64,18 @@ One challenge to delivering the necessary aid to people affected by a natural an
 
 
 ## 5. Images / Screenshots
-
+![Home page] (/images/results-homepage.png)
 ## 6. Discussion
 
-## 7. Author & Acknowledgement 
-Author:
-## Eliud Nduati 
+The performance of the model is greatly impacted by the imbalanced data. The Training time is also a major factor as the more parameters are added and tuned, the more time the project takes to train. 
 
+## 7. Author & Acknowledgement 
+
+Author: Eliud Nduati
+
+Acknowledgement:
+The Data is provided by 
+[Figure Eight] (https://appen.com)
+
+The project is part of the [Udacity Datascience Nano Degree Program]
 
