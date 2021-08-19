@@ -33,7 +33,7 @@ engine = create_engine('sqlite:///../data/DisasterResponse.db')
 df = pd.read_sql('messages', engine)
 
 # load model
-model = joblib.load("../models/rf_classifier_model.pkl")
+model = joblib.load("../models/classifier.pkl")
 
 
 # index webpage displays cool visuals and receives user input text for model
@@ -46,15 +46,61 @@ def index():
     genre_counts = df.groupby('genre').count()['message']
     genre_names = list(genre_counts.index)
     
+    
+    category_names = df.iloc[:4].columns
+    category_boolean = (df.iloc[:,4:] !=0).sum().values
     # create visuals
     # TODO: Below is an example - modify to create your own visuals
     graphs = [
         {
             'data': [
                 Bar(
-                    x=genre_names,
-                    y=genre_counts
+                    x = category_names,
+                    y=category_boolean,
+                    marker=dict(color="MediumBlue")
+                    
                 )
+            ],
+            'layout':{
+                'title': 'Distribution of Messages by categories',
+                'yaxis':{
+                    'title': "count"
+                },
+                'xaxis': {
+                    'title': "",
+                    'tickangle': -35
+                }
+            }
+        },
+        
+        {
+            'data': [
+                {
+                    "type": "pie",
+                    "hole": 0.1,
+                    "name": "genre",
+                    "pull": 0,
+                    "domain": {
+                        "x": genre_counts,
+                        "y": genre_names
+                    },
+                    "marker":{
+                        "colors":[
+                            "LightGreen",
+                            "MediumRed",
+                            "LightSkyBlue4"
+                        ]
+                    },
+                    "textinfo": "label+value",
+                    "hoverinfo": "all",
+                    "labels": genre_names,
+                    "values": genre_counts
+                }
+                
+#                 Bar(
+#                     x=genre_names,
+#                     y=genre_counts
+#                 )
             ],
 
             'layout': {

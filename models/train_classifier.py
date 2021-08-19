@@ -21,8 +21,7 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.feature_extraction.text import CountVectorizer, TfidfTransformer
 from sklearn.metrics import classification_report
 from sklearn.model_selection import GridSearchCV
-#from sklearn.externals import joblib
-import joblib 
+from sklearn.externals import joblib
 
 
 
@@ -123,8 +122,11 @@ def save_model(model, model_filepath):
         model ([trained classifier from above])
         model_filepath ([filepath ]): [provides the location and name to be used in saving the model]
     """
-    model_filepath = 'rf_classifier_model.pkl'
-    pickle.dump(model, open(model_filepath, 'wb'))
+    with open(model_filepath, 'wb') as file:
+        pickle.dump(model, file)
+    
+#     model_filepath = 'rf_classifier_model.pkl'
+#     pickle.dump(model, open(model_filepath, 'wb'))
     # with gzip.open(model_filepath, 'wb') as f:
     #     Pickle.dump(model, f) 
         
