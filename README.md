@@ -18,8 +18,8 @@
 - pandas
 - skLearn
 - pickle
-- sqlalchemy
-- plotly
+- SQLalchemy
+- Plotly
 - flask
 
 
