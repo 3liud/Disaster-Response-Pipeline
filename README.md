@@ -83,5 +83,5 @@ Acknowledgement:
 The Data is provided by 
 [Figure Eight] (https://appen.com)
 
-The project is part of the [Udacity Datascience Nano Degree Program]
+The project is part of the [Udacity Datascience Nano Degree Program].
 
