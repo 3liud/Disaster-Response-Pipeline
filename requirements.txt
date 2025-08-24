@@ -1,0 +1,27 @@
+# Core ML & data
+pandas>=2.2
+scikit-learn>=1.5
+joblib>=1.4
+iterative-stratification>=0.1.9
+
+# API
+fastapi>=0.112
+uvicorn[standard]>=0.30
+
+# Orchestration & transformations
+dagster>=1.8
+dagster-webserver>=1.8
+dbt-core>=1.8
+dbt-postgres>=1.8
+
+# Experiment tracking
+mlflow>=2.14
+
+# Utilities
+python-dotenv>=1.0
+
+# Testing & linting
+pytest>=8.3
+black>=24.3
+ruff>=0.6
+pre-commit>=3.7
